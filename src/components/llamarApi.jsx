@@ -24,7 +24,3 @@ function LLamarApi(props) {
 }
 
 export default LLamarApi;
-
-{/* <button type="submit" className="btn btn-primary">
-  {this.props.editIndexTodo === -1 ? "Save" : "Edit"}
-</button> */}
