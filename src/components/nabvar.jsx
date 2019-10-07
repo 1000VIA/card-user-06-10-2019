@@ -4,7 +4,7 @@ function Nabvar(props) {
   return (
     <nav className="navbar navbar-dark bg-dark">
       <a className="navbar-brand" href="/">
-        <span>Total Cards: </span>{props.total}
+        <span>Total Cards: </span>{props.persons}
       </a>
     </nav>
   )
