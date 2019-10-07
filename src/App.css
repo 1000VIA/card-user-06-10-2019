@@ -6,6 +6,12 @@
   height: 40vmin;
 }
 
+nav{
+ background: #56CCF2;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -17,6 +23,39 @@
   color: white;
 }
 
+.card {
+    position: relative;
+    padding: 20px 0;
+    width: 100%;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 0 1px rgba(0,0,0,.5);
+    overflow: hidden;
+    text-align: center;
+    z-index: 5;
+}
+
+.card .user_photo {
+    position: relative;
+    background: #fff;
+    padding: 1px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: -30px;
+    border: 1px solid rgba(0,0,0,.25);
+}
+
+
 .App-link {
   color: #09d3ac;
+}
+
+.card {
+  padding:0;
+  background: #56CCF2;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 }

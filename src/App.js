@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Navbar from './components/nabvar'
+import LlamarApi from './components/llamarApi'
+
+class App extends Component {
+  state = {
+    persons: [],
+  }
+  consultandoApi = () => {
+    fetch(`https://randomuser.me/api/?results=81`)
+      .then(response => response.json())
+      .then(data => this.setState({ persons: data.results }))
+  };
+
+  componentDidMount() {
+    this.consultandoApi()
+  }
+
+  render() {
+    return (
+      <>
+        <Navbar total={this.state.persons.length} />
+        <LlamarApi persons={this.state.persons} />
+      </>
+    )
+  }
+
 }
 
 export default App;
