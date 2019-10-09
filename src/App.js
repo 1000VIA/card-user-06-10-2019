@@ -3,6 +3,7 @@ import './App.css';
 
 import Navbar from './components/nabvar'
 import LlamarApi from './components/llamarApi'
+import AddPerson from './components/buttonAdd'
 
 class App extends Component {
   state = {
@@ -14,12 +15,20 @@ class App extends Component {
       .then(data => this.setState({ persons: data.results }))
       .catch(error => { alert('Ha ocurrido un error', error) })
   };
-
   componentDidMount() {
     this.consultandoApi()
   }
-
-  removeBotton = (removeIndex) => {
+  addCard = () => {
+    fetch(`https://randomuser.me/api/`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.results);
+        const persons = [...data.results, ...this.state.persons]
+        this.setState({ persons })
+      })
+      .catch(error => { alert('Ha ocurrido un error', error) })
+  }
+  removeCard = (removeIndex) => {
     const arrPersons = this.state.persons;
     const filterCard = arrPersons.filter((person, index) => index !== removeIndex
     )
@@ -27,12 +36,15 @@ class App extends Component {
       persons: filterCard
     })
   }
-
   render() {
     return (
       <>
         <Navbar persons={this.state.persons.length} />
-        <LlamarApi persons={this.state.persons} deleteCard={this.removeBotton} />
+        <AddPerson addCard={this.addCard} />
+        <LlamarApi
+          persons={this.state.persons}
+          deleteCard={this.removeCard}
+        />
       </>
     )
   }

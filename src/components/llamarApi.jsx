@@ -13,7 +13,7 @@ function LLamarApi(props) {
           className="btn btn-danger"
           onClick={() => props.deleteCard(index)}>
           Delete
-          </button>
+        </button>
       </div>
     </div>)
   return (
